@@ -1,0 +1,55 @@
+import random
+
+class JuegoCaraYSello:
+    def __init__(self):
+        self.opciones = {1: "Cara", 2: "Sello"}
+
+    def jugar(self, eleccion_usuario):
+        if eleccion_usuario not in self.opciones:
+            print("Por favor, ingresa una opción válida (1 para cara, 2 para sello)")
+            return
+
+        eleccion_computadora = random.randint(1, 2)
+        print(f"La computadora eligió: {self.opciones[eleccion_computadora]}")
+
+        if eleccion_usuario == eleccion_computadora:
+            print("¡Has acertado!")
+        else:
+            print("Lo siento, has perdido.")
+
+class JuegoPiedraPapelTijera:
+    def __init__(self):
+        self.opciones = {1: "Piedra", 2: "Papel", 3: "Tijera"}
+
+    def jugar(self, eleccion_usuario):
+        if eleccion_usuario not in self.opciones:
+            print("Por favor, ingresa una opción válida (1 para piedra, 2 para papel, 3 para tijera)")
+            return
+
+        eleccion_computadora = random.randint(1, 3)
+        print(f"La computadora eligió: {self.opciones[eleccion_computadora]}")
+
+        if eleccion_usuario == eleccion_computadora:
+            print("¡Has acertado!")
+        else:
+            print("Lo siento, has perdido.")
+
+def main():
+    print("Bienvenido a los juegos:")
+    print("1. Cara y Sello")
+    print("2. Piedra, Papel y Tijera")
+    eleccion = int(input("Elige el juego (1 o 2): "))
+
+    if eleccion == 1:
+        juego_cara_sello = JuegoCaraYSello()
+        eleccion_usuario = int(input("Elige cara (1) o sello (2): "))
+        juego_cara_sello.jugar(eleccion_usuario)
+    elif eleccion == 2:
+        juego_ppt = JuegoPiedraPapelTijera()
+        eleccion_usuario = int(input("Elige piedra (1), papel (2) o tijera (3): "))
+        juego_ppt.jugar(eleccion_usuario)
+    else:
+        print("Por favor, elige una opción válida (1 o 2).")
+
+if __name__ == "__main__":
+    main()
